@@ -1,31 +1,19 @@
 export const resolvers = {
-    Query: {    // [TEMP]
-        user: (id) => {
-            users_data.forEach((user)=>{
-                if (user.id===id) {
-                    return user;
-                }
-            })
-            return NaN;
+    Query: {    // [TEMP] 本来はDBに接続
+        user: async (parent, args, context) => {
+            const response = await context.dataSrouces.userApi.getUser(args.id);
+            return response;
         },
-        users: () => users,
+        users: async (parent, args, context) => {
+            console.log("ここきた");
+            console.log(context);
+            console.log(context.dataSources);
+            console.log(context.dataSources.userApi);
+            const response = await context.dataSources.userApi.getUsers();
+            console.log("resきた");
+            console.log(response);
+            return response;
+        },
     }
 }
-
-
-// [TEMP] データをハードコーディング
-const users_data = [
-    {
-        id: 1,
-        name: "taro",
-        email: "taro@email.com",
-        password: "taropass123",
-    },
-    {
-        id: 2,
-        name: "jiro",
-        email: "jiro@email.com",
-        password: "jiropass123",
-    },
-];
 
