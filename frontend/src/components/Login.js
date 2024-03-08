@@ -1,16 +1,7 @@
 import { useState } from "react";
-import { useQuery, gql } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 
-const GET_USER = gql`
-  query GetUser($name: String!, $password: String!) {
-    user(name:$name, password:$password) {
-      id
-      name
-      email
-      password
-    }
-  }
-`;
+import { GET_USER } from "./graphql.js";
 
 const LogIn = () => {
     const [ userName, setUserName ] = useState("");
@@ -44,7 +35,7 @@ const LogIn = () => {
 
     return (
         <div>
-            <h3>Loginフォーム</h3>
+            <h3>Loginフォーム（条件付き問い合わせサンプル）</h3>
             <ul>
                 <li>
                     name:

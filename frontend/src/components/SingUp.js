@@ -1,26 +1,8 @@
 import { useState } from "react";
-import { useMutation, gql } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 
-const ADD_USER = gql`
-    mutation AddUser($name: String!, $email: String!, $password: String!) {
-        addUser(name:$name, email:$email, password:$password) {
-            id
-            name
-            email
-            password
-        }
-    }
-`;
-const LIST_USERS = gql`
-  query ListUsers {
-    users {
-      id
-      name
-      email
-      password
-    }
-  }
-`;
+import { ADD_USER, LIST_USERS } from "./graphql";
+
 
 const SignUp = () => {
     const [ newName, setNewName ] = useState("");
@@ -45,7 +27,7 @@ const SignUp = () => {
         setNewName("");
         setNewEmail("");
         setNewPassword("");
-    }
+    };
 
     // mutationの登録
     const [ addUser, { /*loading, */ error }] = useMutation(
@@ -74,7 +56,7 @@ const SignUp = () => {
 
     return (
         <div>
-            <h3>Sign upフォーム</h3>
+            <h3>Sign upフォーム（登録サンプル）</h3>
             <ul>
                 <li>
                     name:
