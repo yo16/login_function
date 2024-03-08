@@ -5,13 +5,7 @@ export const resolvers = {
             return response;
         },
         users: async (parent, args, context) => {
-            console.log("ここきた");
-            console.log(context);
-            console.log(context.dataSources);
-            console.log(context.dataSources.userApi);
             const response = await context.dataSources.userApi.getUsers();
-            console.log("resきた");
-            console.log(response);
             return response;
         },
     }
