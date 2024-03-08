@@ -22,9 +22,12 @@ function App() {
   return (
     <div className="App">
       <SignUp />
+      <hr />
+
       <LogIn />
       <hr />
-      <h3>[for sample]ユーザーリスト</h3>
+
+      <h3>ユーザーリスト</h3>
       <table border="1">
         <thead>
           <tr>

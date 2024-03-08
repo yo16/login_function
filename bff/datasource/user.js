@@ -17,6 +17,17 @@ export class UserDataSource {
     async getUsers() {
         return users_data;
     }
+
+    async addUser(name, email, password) {
+        const new_user = {
+            id: users_data.length+1,
+            name,
+            email,
+            password,
+        };
+        users_data.push(new_user);
+        return new_user;
+    }
 }
 
 
