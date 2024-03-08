@@ -1,7 +1,10 @@
 export const resolvers = {
-    Query: {    // [TEMP] 本来はDBに接続
+    Query: {
         user: async (parent, args, context) => {
-            const response = await context.dataSources.userApi.getUser(args.name, args.password);
+            const response
+                = await context.dataSources.userApi.getUser(
+                    args.name, args.password
+                );
             return response;
         },
         users: async (parent, args, context) => {
@@ -11,7 +14,10 @@ export const resolvers = {
     },
     Mutation: {
         addUser: async (parent, args, context) => {
-            const response = await context.dataSources.userApi.addUser(args.name, args.email, args.password);
+            const response
+                = await context.dataSources.userApi.addUser(
+                    args.name, args.email, args.password
+                );
             return response;
         },
     },
