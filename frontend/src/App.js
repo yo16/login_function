@@ -25,15 +25,25 @@ function App() {
       <LogIn />
       <hr />
       <h3>[for sample]ユーザーリスト</h3>
-      <table>
-      {data.users.map((user) => (
-        <tr>
-          <td>{user.id}</td>
-          <td>{user.name}</td>
-          <td>{user.email}</td>
-          <td>{user.password}</td>
-        </tr>
-      ))}
+      <table border="1">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>email</th>
+            <th>password</th>
+          </tr>
+        </thead>
+        <tbody>
+        {data.users.map((user, i) => (
+          <tr key={`user_list_tr_${i}`}>
+            <td>{user.id}</td>
+            <td>{user.name}</td>
+            <td>{user.email}</td>
+            <td>{user.password}</td>
+          </tr>
+        ))}
+        </tbody>
       </table>
     </div>
   );

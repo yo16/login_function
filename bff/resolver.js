@@ -1,7 +1,7 @@
 export const resolvers = {
     Query: {    // [TEMP] 本来はDBに接続
         user: async (parent, args, context) => {
-            const response = await context.dataSrouces.userApi.getUser(args.id);
+            const response = await context.dataSources.userApi.getUser(args.name, args.password);
             return response;
         },
         users: async (parent, args, context) => {

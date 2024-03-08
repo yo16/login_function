@@ -10,7 +10,7 @@ type User {
 
 # クエリの定義
 type Query {
-    user(name: String, password: String): User
+    user(name: String!, password: String!): User
     users: [User]
 }
 `;

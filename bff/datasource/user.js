@@ -4,13 +4,14 @@ export class UserDataSource {
         // initialize db connection etc...
     }
 
-    async getUser(id) {
+    async getUser(name, password) {
+        let found_user = null;
         users_data.forEach((user)=>{
-            if (user.id===id) {
-                return user;
+            if (user.name===name && user.password===password) {
+                found_user = user;
             }
         })
-        return null;
+        return found_user;
     }
 
     async getUsers() {
